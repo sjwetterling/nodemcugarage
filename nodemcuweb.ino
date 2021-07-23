@@ -91,11 +91,6 @@ void garageDoor() {
 }
 // Serving Settings
 void getSettings() {
-      // Allocate a temporary JsonDocument
-      // Don't forget to change the capacity to match your requirements.
-      // Use arduinojson.org/v6/assistant to compute the capacity.
-    //  StaticJsonDocument<512> doc;
-      // You can use DynamicJsonDocument as well
       DynamicJsonDocument doc(512);
  
       doc["ip"] = WiFi.localIP().toString();
@@ -180,8 +175,7 @@ void setup(void) {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
  
-  // Activate mDNS this is used to be able to connect to the server
-  // with local DNS hostmane esp8266.local
+  // Activate mDNS this is used to be able to connect to the server with local DNS hostmane esp8266.local
   if (MDNS.begin("garage")) {
     Serial.println("MDNS responder started");
   }
