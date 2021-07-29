@@ -1,0 +1,12 @@
+sensor:
+  - platform: rest
+    resource: http://192.168.254.254/button
+    method: GET
+    name: "Garage Status"
+    value_template: '{{ value_json["garagedoor"] }}'
+    scan_interval: 30
+
+rest_command:
+  toggle_garage:
+    url: 'http://192.168.254.254/toggle?toggle=true'
+    method: GET
